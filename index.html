@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="quotes">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Quotes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--external css-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- External JS -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="quoteBar">
+        <input id="quoteInput" class="form-control input-lg" type="text" placeholder="Quote...">
+      </div>
+
+      <div class="panel">
+        <header class="panel-heading">
+          
+        </header>
+        <div class="panel-body">
+          <div class="adv-table">
+            <table id="quotesTable" class="table table-hover">
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <script>
+
+      var fb = new Firebase('https://csequotes.firebaseio.com');
+
+      var countOdd = 0;
+
+      $('#quoteInput').keypress(function (e){
+        if(e.which == 13){
+          var quote = $('#quoteInput').val();
+          if(quote)
+            fb.push(quote);
+
+          $('#quoteInput').val('');
+        }
+      });
+
+      fb.on('child_added', function(newQuote){
+        var quote = newQuote.val();
+        displayQuote(quote);
+      });
+
+      function displayQuote(text){
+        var curRow = "row" + countOdd.toString();
+        var row = '<tr id='+curRow+'><td>' + text + '</td></tr>';
+        $('#quotesTable tbody').prepend(row);
+
+        if(!countOdd)
+          countOdd++;
+        else{
+          odds(curRow);
+          countOdd--;
+        }
+      };
+
+      function odds(row) {
+        $('#'+row).css("background-color", "#FFE6D8");
+      };
+
+    </script>
+  </body>
+</html>

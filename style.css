@@ -1,0 +1,13 @@
+.table th, .table td, .table tr, .table tbody>tr>td { 
+  border: none; 
+}
+
+.quoteBar{
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 5%;
+}
+
+#tableCount tr td:nth-of-type(2n+2){
+  background-color: #FFE6D8;
+}
