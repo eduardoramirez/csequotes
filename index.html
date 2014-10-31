@@ -75,7 +75,7 @@
 
       function displayQuote(text){
         var curRow = "row" + countOdd.toString();
-        var row = '<tr id='+curRow+'><td>' + text + '</td></tr>';
+        var row = '<tr id='+curRow+'><td><i>"' + text + '"</i></td></tr>';
         $('#quotesTable tbody').prepend(row);
 
         if(!countOdd)
