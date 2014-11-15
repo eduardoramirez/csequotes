@@ -1,4 +1,4 @@
 csequotes
 =========
 
-Quotes about people in case
+Memorable Quotes -- Keep track of your friends best/funny/dumb quotes. Available at csequotes.com
