@@ -8,6 +8,9 @@
 
     <title>Quotes</title>
 
+    <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/flat-ui.css" rel="stylesheet">
+
     <!-- Bootstrap core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
@@ -31,9 +34,16 @@
 
   <body>
     <div class="container">
-      <div class="quoteBar">
-        <input id="quoteInput" class="form-control input-lg" type="text" placeholder="Quote...">
-      </div>
+      <h1 class="headline">CSE Quotes</h1>
+      <h4 class="headline">Remember the most memorable quotes.</h4>
+      <br />
+      <form class="form-horizontal" role="form">
+        <div class="form-group form-group-hg">
+            <div class="col-md-10 quoteBar">
+              <input class="form-control" type="text" id="quoteInput" placeholder="Quote...">
+            </div>
+        </div>
+      </form>
 
       <div class="panel">
         <header class="panel-heading">
@@ -87,7 +97,9 @@
       };
 
       function odds(row) {
-        $('#'+row).css("background-color", "#FFE6D8");
+        $('#'+row).css("background-color", "#2C3E50");
+        $('#'+row).css('color', 'white');
+        //$('#'+row).addClass("text-muted");
       };
 
     </script>

@@ -3,12 +3,19 @@
 }
 
 .quoteBar{
-  padding-top: 100px;
   margin-left: 10%;
   margin-right: 10%;
-  padding-bottom: 5%;
 }
 
 #tableCount tr td:nth-of-type(2n+2){
   background-color: #FFE6D8;
+}
+
+
+.table tbody tr:hover td, .table tbody tr:hover th {
+  background-color: transparent;
+}
+
+.headline {
+  text-align: center;
 }
